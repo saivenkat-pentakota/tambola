@@ -1,0 +1,21 @@
+<nav class="navbar navbar-light bg-light justify-content-between">
+  <a class="navbar-brand"><span class="gameIdTitle">Game Id:</span> <br>{{gameId}}</a>
+  <form class="form-inline">
+    <i class="fa fa-cog my-2 my-sm-0" aria-hidden="true"></i>
+  </form>
+</nav>
+<div class="previouslist">
+  <ng-container *ngFor="let number of randomNumber">
+    <ng-container *ngIf="number!=0">
+      <div class="number" [id]="number">{{number}}</div>
+    </ng-container>
+  </ng-container>
+</div>
+<div class="presentnumber" (click)="getNumber()">
+  {{randomNumber[randomNumber.length-1]}}
+</div>
+<div class="list">
+  <ng-container *ngFor="let number of numbers">
+    <span [ngClass]="getClass(number)" [id]="'A-'+number">{{number}}</span>
+  </ng-container>
+</div>
