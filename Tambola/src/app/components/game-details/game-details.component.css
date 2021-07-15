@@ -1,0 +1,39 @@
+
+.game-details{
+  margin: 10px;
+}
+
+.ticket label{
+  margin:10px;
+  font-size: medium;
+  color: rgb(74, 106, 175);
+}
+
+.ticket input{
+  border: none;
+  width: 20%;
+  border-bottom: 2px solid gray;
+}
+
+.colors{
+  margin-bottom: 15px;
+
+}
+
+.colors  i{
+  color:yellow;
+}
+
+.input-class{
+  width: 20%;
+    background: none;
+    border: none;
+    border-bottom: 1px solid gray;
+}
+
+.gameTypeAmount{
+  width: 40%;
+  display: inline-block;
+  position: absolute;
+  right: 0;
+}

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { MainServiceService } from 'src/app/services/main-service.service';
 
 @Component({
   selector: 'app-home',
@@ -6,68 +7,58 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
-  numbers:number[]= [];
-  randomNumber:number[]= [0];
-  dataSet:number[]=[];
-  arrayLength=0;
-  gameId:number=1234;
+  display = "none";
 
-  constructor() {
+  constructor(public service: MainServiceService) {
     this.fillDataSet();
-    this.arrayLength=this.dataSet.length;
+    this.service.arrayLength = this.service.dataSet.length;
 
   }
 
   ngOnInit(): void {
+    this.service.numbers = [];
     this.fillNumbers();
-    setTimeout(()=>{
-      this.scrollToView(""+this.randomNumber[this.randomNumber.length-1]);
-    },1000);
+    setTimeout(() => {
+      this.service.scrollToView("" + this.service.randomNumber[this.service.randomNumber.length - 1]);
+    }, 1000);
+
   }
 
-  fillNumbers(){
-    for(let i=1;i<=90;i++){
-      this.numbers.push(i);
+  fillNumbers() {
+    for (let i = 1; i <= 90; i++) {
+      this.service.numbers.push(i);
     }
   }
 
-  scrollToView(num:string){
-    var element = document.getElementById(num);
-    if(element!=undefined){
-      element.scrollIntoView();
+
+
+  fillDataSet() {
+    for (let i = 1; i <= 90; i++) {
+      this.service.dataSet.push(i);
     }
   }
 
-  fillDataSet(){
-    for(let i=1;i<=90;i++){
-      this.dataSet.push(i);
-    }
-  }
 
-  getNumber(){
 
-    if(this.dataSet.length!=0){
-      let index=Math.floor(Math.random()*(this.arrayLength+1));
-      if(index == this.arrayLength){
-        this.getNumber();
-        return;
-      }
-      console.log('index:'+index+' number:'+this.dataSet[index]+' length-'+this.arrayLength);
-      this.randomNumber.push(this.dataSet[index]);
-      this.dataSet.splice(index,1);
-      this.arrayLength--;
-      setTimeout(()=>{
-        this.scrollToView(""+this.randomNumber[this.randomNumber.length-1]);
-      },1000);
-    }
-
-  }
-
-  getClass(num:number){
-    let className="allnumber";
-    if(this.randomNumber.indexOf(num)!=-1){
-        className+=" marked";
+  getClass(num: number) {
+    let className = "allnumber";
+    if (this.service.randomNumber.indexOf(num) != -1) {
+      className += " marked";
     }
     return className;
   }
+
+  openModal() {
+    this.display = "block";
+  }
+  onCloseHandled() {
+    this.display = "none";
+  }
+
+  getNumber() {
+    if (this.service.type == "1") {
+      this.service.getNumber();
+    }
+  }
+
 }

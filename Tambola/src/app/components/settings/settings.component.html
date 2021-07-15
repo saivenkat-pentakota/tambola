@@ -1,0 +1,44 @@
+<nav class="navbar navbar-light bg-light justify-content-between">
+<form class="form-inline navitems">
+  <ul style="padding: 0px;">
+   <li><i class="fa fa-arrow-left" aria-hidden="true"(click)="service.openHome()"></i></li>
+  </ul>
+</form>
+<ng-container *ngIf="service.isAdmin">
+<div class="input-group mb-3 width-40 ">
+  <label class="input-group-text nav-icon" for="inputGroupSelect01"><i class="fa fa-clock-o" aria-hidden="true"></i></label>
+  <select [(ngModel)]="service.defaulttime" class="form-select customselect" id="inputGroupSelect01">
+    <option value="1">1</option>
+    <option value="2">2</option>
+    <option value="3">3</option>
+    <option value="4">4</option>
+    <option value="5">5</option>
+    <option value="6">6</option>
+    <option value="7">7</option>
+    <option value="8">8</option>
+    <option value="9">9</option>
+    <option value="10">10</option>
+  </select>
+</div>
+
+<div class="input-group mb-3 width-40">
+  <label class="input-group-text nav-icon" for="inputGroupSelect01"><i class="fa fa-code-fork" aria-hidden="true"></i></label>
+  <select [(ngModel)]="service.type" class="form-select customselect" id="inputGroupSelect01">
+    <option value="0">Auto</option>
+    <option value="1">Manual</option>
+
+  </select>
+</div>
+</ng-container>
+</nav>
+<div class="sidemenu">
+<ul style="margin-bottom: 0; height:45px" >
+  <li><i class="fa fa-user"   [style.color]="(activeItem==1) ? 'blue':'black'" aria-hidden="true"(click)="activeItem=1"></i></li>
+  <li><i class="fa fa-info-circle"  [style.color]="(activeItem==2) ? 'blue':'black'" aria-hidden="true" (click)="activeItem=2"></i></li>
+</ul>
+</div>
+<div>
+<app-users *ngIf="activeItem==1"></app-users>
+<app-game-details *ngIf="activeItem==2"></app-game-details>
+</div>
+

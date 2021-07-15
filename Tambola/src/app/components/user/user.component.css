@@ -1,0 +1,64 @@
+.user-profile{
+  display:flex;
+  margin: 5px;
+  border-bottom: 1px solid lightgray;
+}
+
+.user-image{
+  flex: 1;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+
+}
+
+.user-image i{
+ font-size: 35px;
+ color: #9435dc;
+}
+
+.user-details{
+  flex:4;
+}
+
+.winner{
+   display:flex;
+   margin-top: 2px;
+}
+
+.colors{
+  flex:1;
+  color:#d3d3d347;
+}
+
+.user-name{
+  font-size: x-large;
+    font-weight: 600;
+    color: #6c757d;
+}
+
+.ticket-label{
+  background: none;
+  border: none;
+  color: #ffc107;
+}
+
+.customselect{
+  border: none;
+  background: none;
+  padding: 5px;
+}
+
+
+.delete{
+  position: absolute;
+    right: 10px;
+    color: gray;
+    margin: 10px;
+}
+
+.userName{
+  width: 80%;
+  border: none;
+}
+

@@ -1,0 +1,74 @@
+.marked{
+  background: #007bff;
+    color: white;
+}
+.navitems ul {
+  display: flex;
+  justify-content: center;
+}
+
+.navitems ul li {
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 40px;
+  width: 40px;
+  margin: 5px;
+  border-radius: 50%;
+  background: #e0e0e0;
+  box-shadow: inset 5px 5px 8px #cecece, inset -5px -5px 8px #f2f2f2;
+}
+
+.navitems ul li:hover {
+  box-shadow: inset 5px 5px 8px #cecece, inset -5px -5px 8px #f2f2f2;
+}
+
+.navitems ul li:nth-child(1) i{
+    color:hsl(12, 79%, 52%);
+}
+
+
+@media screen and (max-width: 640px) {
+    .navitems ul {
+        display: flex;
+      }
+  }
+
+  .sidemenu ul {
+    list-style-type: none;
+    padding: 0;
+    overflow: hidden;
+    border-bottom: 2px solid lightgray;
+    display: flex;
+
+  }
+
+  .sidemenu ul li {
+    float: left;
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+  }
+
+  .sidemenu ul li i {
+    display: block;
+    text-align: center;
+    padding: 24px 36px;
+    text-decoration: none;
+    color:rgb(95, 90, 90);
+  }
+
+  .nav-icon{
+    color: #ff3fb2;
+    background: #f8f9fa;
+    border: none;
+  }
+
+  .customselect{
+    border: none;
+    border-bottom: 1px solid gray;
+    background: none;
+  }

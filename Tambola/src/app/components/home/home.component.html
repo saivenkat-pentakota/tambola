@@ -1,21 +1,54 @@
-<nav class="navbar navbar-light bg-light justify-content-between">
-  <a class="navbar-brand"><span class="gameIdTitle">Game Id:</span> <br>{{gameId}}</a>
-  <form class="form-inline">
-    <i class="fa fa-cog my-2 my-sm-0" aria-hidden="true"></i>
-  </form>
-</nav>
-<div class="previouslist">
-  <ng-container *ngFor="let number of randomNumber">
-    <ng-container *ngIf="number!=0">
-      <div class="number" [id]="number">{{number}}</div>
+<div class="homepage">
+  <nav class="navbar navbar-light bg-light justify-content-between">
+    <a class="navbar-brand"><span class="gameIdTitle">Game Id:</span> <br>{{service.gameKey}}</a>
+    <form class="form-inline">
+      <ul>
+        <ng-container *ngIf="service.isAdmin">
+          <li><button type="button" class="border-none bg-none" (click)="openModal()"><i
+                class="fa fa-refresh"></i></button></li>
+          <ng-container *ngIf="service.type=='0'">
+            <li *ngIf="!this.service.ispaused" (click)="this.service.pauseTimer()"><i class="fa fa-pause"></i></li>
+            <li *ngIf="this.service.ispaused" (click)="this.service.startTimer()"><i class="fa fa-play"></i></li>
+            <li>{{service.timeLeft}}</li>
+          </ng-container>
+        </ng-container>
+
+        <li><i class="fa fa-cog my-2 my-sm-0"  style="color: black" aria-hidden="true" (click)="service.openSettings()"></i>
+        </li>
+        <li><i class="fa fa-power-off my-2 my-sm-0" style="color:darkred" aria-hidden="true"></i></li>
+      </ul>
+    </form>
+  </nav>
+  <div class="previouslist">
+    <ng-container *ngFor="let number of service.randomNumber">
+      <ng-container *ngIf="number!=0">
+        <div class="number" [id]="number">{{number}}</div>
+      </ng-container>
     </ng-container>
-  </ng-container>
+  </div>
+  <div class="presentnumber" (click)="getNumber()">
+    {{service.randomNumber[service.randomNumber.length-1]}}
+  </div>
+  <div class="list">
+    <ng-container *ngFor="let number of service.numbers">
+      <span [ngClass]="getClass(number)" [id]="'A-'+number">{{number}}</span>
+    </ng-container>
+  </div>
 </div>
-<div class="presentnumber" (click)="getNumber()">
-  {{randomNumber[randomNumber.length-1]}}
-</div>
-<div class="list">
-  <ng-container *ngFor="let number of numbers">
-    <span [ngClass]="getClass(number)" [id]="'A-'+number">{{number}}</span>
-  </ng-container>
+
+
+<div class="modal" tabindex="-1" role="dialog" [ngStyle]="{'display':display}">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title">Reset</h4>
+        <button type="button" class="close" aria-label="Close" (click)="onCloseHandled()"><span
+            aria-hidden="true">&times;</span></button>
+      </div>
+      <div class="modal-footer justify-content-center">
+        <button type="button" class="btn btn-primary" (click)="this.service.reset();onCloseHandled()">Yes</button>
+        <button type="button" class="btn btn-secondary" (click)="onCloseHandled()">No</button>
+      </div>
+    </div>
+  </div>
 </div>

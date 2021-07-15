@@ -1,1 +1,19 @@
-/* You can add global styles to this file, and also import other style files */
+.border-none{
+  border:none !important;
+}
+.bg-none{
+  background:none !important;
+}
+
+.margin-none{
+  margin:0 !important;
+}
+
+.border-bottom{
+  border:none !important;
+  border-bottom: 1px solid gray !important;
+}
+
+.width-40{
+  width:40%;
+}

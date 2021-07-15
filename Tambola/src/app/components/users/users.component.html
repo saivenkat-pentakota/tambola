@@ -1,0 +1,11 @@
+<div class="users">
+<ng-container *ngFor="let user of service.users">
+  <app-user [user]="user"></app-user>
+</ng-container>
+<a  *ngIf="service.isAdmin" class="float" (click)="service.addUserByAdmin()" aria-autocomplete="none">
+  <i class="fa fa-plus my-float"></i>
+</a>
+</div>
+
+
+

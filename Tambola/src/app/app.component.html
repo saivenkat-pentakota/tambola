@@ -1,5 +1,11 @@
 
 
 <router-outlet></router-outlet>
-<app-home></app-home>
+<div *ngIf="service.alert" class="alert alert-danger  alert-dismissible fade show alertpopup justify-content-center" role="alert">
+  <i class="fa fa-times" aria-hidden="true"></i> {{service.alertMessage}}
+  <button type="button" class="btn-close" data-bs-dismiss="alert" (click)="service.alert=false" aria-label="Close">
+    <i class="fa fa-times" aria-hidden="true"></i>
+  </button>
+</div>
+
 

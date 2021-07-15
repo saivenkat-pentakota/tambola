@@ -1,3 +1,4 @@
+import { MainServiceService } from 'src/app/services/main-service.service';
 import { Component } from '@angular/core';
 
 @Component({
@@ -7,4 +8,6 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'Tambola';
+
+  constructor(public service:MainServiceService){}
 }

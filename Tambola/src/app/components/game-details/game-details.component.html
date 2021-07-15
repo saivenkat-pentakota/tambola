@@ -1,0 +1,65 @@
+<div class="game-details ">
+  <div class="ticket">
+    <!--one ticket cost  -->
+    <i class="fa fa-inr m-1" style="color:rgba(221, 203, 36, 0.74)"  aria-hidden="true"></i>
+    <input [(ngModel)]="service.singleticketcost" [disabled]="!service.isAdmin" type="number" (blur)="service.calculate()">
+    <!--no of tickets  -->
+    <i class="fa fa-ticket m-1" style="color:rgba(221, 203, 36, 0.74)" aria-hidden="true"></i>
+    <input [(ngModel)]="service.noOfTickets" [disabled]="true" type="number">
+    <!-- total cost -->
+    <i class="fa fa-ticket m-1" style="color:rgba(221, 203, 36, 0.74)" aria-hidden="true"></i><i class="fa fa-inr m-1" style="color:rgba(221, 203, 36, 0.74)"  aria-hidden="true"></i>
+    <input [(ngModel)]="service.totalCost" [disabled]="true" type="number" >
+
+  </div>
+  <div class="colors m-2">
+    <i class="fa fa-circle m-2" style="color: blue; " aria-hidden="true"></i>
+    <label>Jaldhi</label>
+    <div class="gameTypeAmount">
+    <i class="fa fa-inr m-1" style="color:rgba(221, 203, 36, 0.74)"  aria-hidden="true"></i>
+    <input class="ml-2 input-class" (blur)="service.updateGameDetails()" [(ngModel)]="service.typeAmount.jaldhi" [disabled]="!service.isAdmin" type="number" ><br>
+    </div><ng-multiselect-dropdown  [disabled]="!service.isAdmin" [placeholder]="'select user'" [settings]="dropdownSettings" [data]="service.users"
+      [(ngModel)]="service.selectedItems.jaldhi"  (onSelect)="onItemSelect($event)" (onSelectAll)="onSelectAll($event)" (onDeSelect)="onDeSelect()" (onDeSelectAll)="onDeSelectAll()" >
+    </ng-multiselect-dropdown>
+  </div>
+  <div class="colors m-2 ">
+    <i class="fa fa-circle m-2" style="color: yellow;" aria-hidden="true"></i>
+    <label>Top Line</label>
+    <div class="gameTypeAmount">
+    <i class="fa fa-inr m-1" style="color:rgba(221, 203, 36, 0.74)"  aria-hidden="true"></i>
+    <input class="ml-2 input-class" (blur)="service.updateGameDetails()" [(ngModel)]="service.typeAmount.topLine" [disabled]="!service.isAdmin" type="number" ><br>
+    </div><ng-multiselect-dropdown  [disabled]="!service.isAdmin" [placeholder]="'select user'" [settings]="dropdownSettings" [data]="service.users"
+      [(ngModel)]="service.selectedItems.topLine"   (onSelect)="onItemSelect($event)" (onSelectAll)="onSelectAll($event)" (onDeSelect)="onDeSelect()" (onDeSelectAll)="onDeSelectAll()" >
+    </ng-multiselect-dropdown>
+  </div>
+  <div class="colors m-2 ">
+    <i class="fa fa-circle m-2" style="color: green;" aria-hidden="true"></i>
+    <label>Middle Line</label>
+    <div class="gameTypeAmount">
+    <i class="fa fa-inr m-1" style="color:rgba(221, 203, 36, 0.74)"  aria-hidden="true"></i>
+    <input class="ml-2 input-class" (blur)="service.updateGameDetails()" [(ngModel)]="service.typeAmount.middleLine" [disabled]="!service.isAdmin" type="number" ><br>
+    </div><ng-multiselect-dropdown  [disabled]="!service.isAdmin" [placeholder]="'select user'" [settings]="dropdownSettings" [data]="service.users"
+      [(ngModel)]="service.selectedItems.middleLine"   (onSelect)="onItemSelect($event)" (onSelectAll)="onSelectAll($event)" (onDeSelect)="onDeSelect()" (onDeSelectAll)="onDeSelectAll()" >
+    </ng-multiselect-dropdown>
+  </div>
+  <div class="colors m-2 ">
+    <i class="fa fa-circle m-2" style="color: orange;" aria-hidden="true"></i>
+    <label>Bottom Line</label>
+    <div class="gameTypeAmount">
+    <i class="fa fa-inr m-1" style="color:rgba(221, 203, 36, 0.74)"  aria-hidden="true"></i>
+    <input class="ml-2 input-class" (blur)="service.updateGameDetails()" [(ngModel)]="service.typeAmount.bottomLine" [disabled]="!service.isAdmin" type="number" ><br>
+    </div>
+    <ng-multiselect-dropdown  [disabled]="!service.isAdmin" [placeholder]="'select user'" [settings]="dropdownSettings" [data]="service.users"
+      [(ngModel)]="service.selectedItems.bottomLine"  (onSelect)="onItemSelect($event)" (onSelectAll)="onSelectAll($event)" (onDeSelect)="onDeSelect()" (onDeSelectAll)="onDeSelectAll()" >
+    </ng-multiselect-dropdown>
+  </div>
+  <div class="colors m-2 ">
+    <i class="fa fa-circle m-2" style="color: red;" aria-hidden="true"></i>
+    <label>Housie</label>
+    <div class="gameTypeAmount">
+    <i class="fa fa-inr m-1" style="color:rgba(221, 203, 36, 0.74)"  aria-hidden="true"></i>
+    <input class="ml-2 input-class" (blur)="service.updateGameDetails()" [(ngModel)]="service.typeAmount.housie" [disabled]="!service.isAdmin" type="number" ><br>
+    </div><ng-multiselect-dropdown [disabled]="!service.isAdmin" [placeholder]="'select user'" [settings]="dropdownSettings" [data]="service.users"
+      [(ngModel)]="service.selectedItems.housie"   (onSelect)="onItemSelect($event)" (onSelectAll)="onSelectAll($event)" (onDeSelect)="onDeSelect()" (onDeSelectAll)="onDeSelectAll()" >
+    </ng-multiselect-dropdown>
+  </div>
+</div>

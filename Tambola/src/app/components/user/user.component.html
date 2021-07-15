@@ -1,0 +1,63 @@
+<div class="user-profile">
+  <div class="user-image">
+    <i class="fa fa-user-circle-o" aria-hidden="true"></i>
+  </div>
+  <div class="user-details">
+    <div class="m-1">
+      <ng-container *ngIf="!service.isAdmin || user['userName']=='admin'">
+        <span class="user-name"> {{user['userName']}}</span>
+      </ng-container>
+      <ng-container *ngIf="service.isAdmin && user['userName']!='admin'">
+        <span class="user-name"> <input (blur)="service.updateGameDetails()" class="userName"type="text" [(ngModel)]="user['userName']" name="userName"></span>
+      </ng-container>
+      <i *ngIf="service.isAdmin && user['userName']!='admin'" class="fa fa-trash delete" (click)="service.deleteUser(user['userName'])"></i>
+    </div>
+    <div>
+      <div class="m-1 input-group" style="height: 30px;">
+        <div class="input-group mb-3 width-40 ">
+          <label class="input-group-text nav-icon ticket-label" for="inputGroupSelect01"><i class="fa fa-ticket"
+              aria-hidden="true"></i></label>
+          <select [(ngModel)]="user['tickets']" [disabled]="!service.isAdmin" (blur)="service.calculateNoOfTickets()"
+            class="form-select customselect" id="inputGroupSelect01">
+            <option value=0>0</option>
+            <option value=1>1</option>
+            <option value=2>2</option>
+            <option value=3>3</option>
+            <option value=4>4</option>
+            <option value=5>5</option>
+            <option value=6>6</option>
+          </select>
+        </div>
+        <div class="input-group mb-3 width-40 ">
+          <label class="input-group-text nav-icon ticket-label" for="inputGroupSelect01"><i class="fa fa-inr"
+              aria-hidden="true"></i></label>
+          <label style="color: black;" class="input-group-text nav-icon ticket-label"
+            for="inputGroupSelect01">{{user.won}}/-</label>
+        </div>
+      </div>
+      <div class="winner m-1">
+        <div class="colors"
+          [ngStyle]="{'color': service.checkGameTypeWon('jaldhi',user['userName'])?'blue':'#d3d3d347'}">
+          <i class="fa fa-circle" aria-hidden="true"></i>
+        </div>
+        <div class="colors"
+          [ngStyle]="{'color': service.checkGameTypeWon('topLine',user['userName'])?'yellow':'#d3d3d347'}">
+          <i class="fa fa-circle" aria-hidden="true"></i>
+        </div>
+        <div class="colors"
+          [ngStyle]="{'color': service.checkGameTypeWon('middleLine',user['userName'])?'green':'#d3d3d347'}">
+          <i class="fa fa-circle" aria-hidden="true"></i>
+        </div>
+        <div class="colors"
+          [ngStyle]="{'color': service.checkGameTypeWon('bottomLine',user['userName'])?'orange':'#d3d3d347'}">
+          <i class="fa fa-circle" aria-hidden="true"></i>
+        </div>
+        <div class="colors"
+          [ngStyle]="{'color': service.checkGameTypeWon('housie',user['userName'])?'red':'#d3d3d347'}">
+          <i class="fa fa-circle" aria-hidden="true"></i>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>

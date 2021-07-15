@@ -1,0 +1,17 @@
+<div class="enterGame">
+  <div class="gameKey">
+    <div class="enter">
+      <button class="btn btn-secondary m-3 bg-color " type="button" (click)="service.adminLogin()">Start Game</button>
+    </div>
+    <form>
+      <input type="text" [(ngModel)]="service.userName" class="form-control m-3" placeholder="User Name"
+        aria-label="User Name" aria-describedby="basic-addon2" autocomplete="off" name="GameId">
+      <input type="text" [(ngModel)]="service.gameKey" class="form-control m-3" placeholder="6 digits Game Key" aria-label="Enter 4 Digits Pin"
+        aria-describedby="basic-addon2" autocomplete="off" name="pin">
+    </form>
+  <div>
+    <button class="btn btn-secondary m-3 " type="button" (click)="service.validateUserEntry()">Enter Game</button>
+  </div>
+</div>
+
+</div>
